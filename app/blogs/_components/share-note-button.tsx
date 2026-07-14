@@ -55,7 +55,7 @@ function CopyToast({ visible }: { visible: boolean }) {
     <div
       role="status"
       aria-live="polite"
-      className={`pointer-events-none fixed bottom-8 left-1/2 z-50 -translate-x-1/2 rounded-full bg-[#1d1d1f]/92 px-4 py-2.5 text-[15px] font-medium text-white shadow-[0_4px_24px_rgba(0,0,0,0.2)] backdrop-blur-sm transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.2,0,0,1)] ${
+      className={`pointer-events-none fixed bottom-8 left-1/2 z-50 -translate-x-1/2 rounded-full bg-[var(--notes-toast-bg)] px-4 py-2.5 text-[15px] font-medium text-[var(--notes-toast-text)] shadow-[0_4px_24px_var(--notes-shadow-lg)] backdrop-blur-sm transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.2,0,0,1)] ${
         visible
           ? "translate-y-0 opacity-100"
           : "translate-y-2 opacity-0"
@@ -136,7 +136,7 @@ export function ShareNoteButton({ title, slug }: ShareNoteButtonProps) {
         type="button"
         onClick={handleShare}
         aria-label={isCopied ? "Link copied" : "Share note"}
-        className="relative flex h-8 w-8 items-center justify-center rounded-full text-[#1d1d1f] transition-transform duration-150 ease-out before:absolute before:-inset-1 before:content-[''] active:scale-[0.96] hover:bg-black/[0.06]"
+        className="notes-toolbar-btn relative flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-150 ease-out before:absolute before:-inset-1 before:content-[''] active:scale-[0.96]"
       >
         <span className="relative flex h-[17px] w-[17px] items-center justify-center">
           <span

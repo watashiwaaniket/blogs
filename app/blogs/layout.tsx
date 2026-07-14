@@ -2,6 +2,7 @@ import { getAllBlogs } from "@/lib/blogs";
 import { siteConfig } from "@/lib/site-config";
 import { NotesBackground } from "./_components/notes-background";
 import { NotesShell } from "./_components/notes-shell";
+import { ThemeProvider } from "./_components/theme-provider";
 
 export default function BlogsLayout({
   children,
@@ -11,7 +12,7 @@ export default function BlogsLayout({
   const posts = getAllBlogs();
 
   return (
-    <>
+    <ThemeProvider>
       {siteConfig.backgroundImage && (
         <link
           rel="preload"
@@ -24,6 +25,6 @@ export default function BlogsLayout({
       <NotesBackground>
         <NotesShell posts={posts}>{children}</NotesShell>
       </NotesBackground>
-    </>
+    </ThemeProvider>
   );
 }

@@ -11,10 +11,10 @@ type NotesShellProps = {
 
 function EmptyDetail() {
   return (
-    <div className="flex h-full min-h-0 flex-col items-center justify-center bg-white px-8 text-center">
+    <div className="notes-surface-bg flex h-full min-h-0 flex-col items-center justify-center px-8 text-center">
       <div className="max-w-sm">
-        <p className="text-[17px] font-medium text-[#1d1d1f]">Select a note</p>
-        <p className="mt-2 text-[15px] leading-relaxed text-[#86868b] text-pretty">
+        <p className="notes-text text-[17px] font-medium">Select a note</p>
+        <p className="notes-muted mt-2 text-[15px] leading-relaxed text-pretty">
           Choose a note from the list to read it here.
         </p>
       </div>
@@ -32,11 +32,11 @@ export function NotesShell({ posts, children }: NotesShellProps) {
   const showDetailOnMobile = isDetailView;
 
   return (
-    <div className="notes-app mx-auto flex h-dvh w-full max-w-6xl overflow-hidden bg-[#f5f5f7] md:h-full md:rounded-2xl">
+    <div className="notes-app notes-app-bg mx-auto flex h-dvh w-full max-w-6xl overflow-hidden md:h-full md:rounded-2xl">
       <div
         className={`${
           showSidebar ? "flex" : "hidden"
-        } h-full w-full shrink-0 flex-col border-r border-black/[0.06] md:flex md:w-[min(100%,320px)] lg:w-[340px]`}
+        } notes-border-r h-full w-full shrink-0 flex-col md:flex md:w-[min(100%,320px)] lg:w-[340px]`}
       >
         <BlogSidebar posts={posts} activeSlug={activeSlug} />
       </div>
@@ -44,7 +44,7 @@ export function NotesShell({ posts, children }: NotesShellProps) {
       <main
         className={`${
           showDetailOnMobile ? "flex" : "hidden"
-        } h-full min-w-0 flex-1 flex-col md:flex`}
+        } notes-surface-bg h-full min-w-0 flex-1 flex-col md:flex`}
       >
         {isDetailView ? children : <EmptyDetail />}
       </main>

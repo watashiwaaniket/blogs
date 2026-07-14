@@ -100,7 +100,7 @@ export function SocialMenuButton() {
         aria-label="More options"
         aria-haspopup="menu"
         aria-expanded={open}
-        className="relative flex h-8 w-8 items-center justify-center rounded-full text-[#1d1d1f] transition-transform duration-150 ease-out before:absolute before:-inset-1 before:content-[''] active:scale-[0.96] hover:bg-black/[0.06]"
+        className="notes-toolbar-btn relative flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-150 ease-out before:absolute before:-inset-1 before:content-[''] active:scale-[0.96]"
       >
         <MoreIcon />
       </button>
@@ -108,7 +108,7 @@ export function SocialMenuButton() {
       <div
         role="menu"
         aria-hidden={!open}
-        className={`absolute right-0 top-[calc(100%+8px)] z-50 min-w-[200px] origin-top-right overflow-hidden rounded-xl border border-black/[0.08] bg-white/95 p-1 shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-md transition-[opacity,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] ${
+        className={`notes-menu absolute right-0 top-[calc(100%+8px)] z-50 min-w-[200px] origin-top-right overflow-hidden rounded-xl p-1 shadow-[0_8px_32px_var(--notes-shadow-lg)] transition-[opacity,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] ${
           open
             ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
             : "pointer-events-none translate-y-1 scale-[0.98] opacity-0"
@@ -122,9 +122,9 @@ export function SocialMenuButton() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[15px] text-[#1d1d1f] transition-colors duration-150 hover:bg-black/[0.04] active:scale-[0.98]"
+            className="notes-menu-item flex items-center gap-3 rounded-lg px-3 py-2.5 text-[15px] transition-colors duration-150 active:scale-[0.98]"
           >
-            <span className="flex h-5 w-5 items-center justify-center text-[#515154]">
+            <span className="notes-muted flex h-5 w-5 items-center justify-center">
               <SocialIcon label={social.label} />
             </span>
             {social.label}

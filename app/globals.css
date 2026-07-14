@@ -1,13 +1,69 @@
 @import "tailwindcss";
 
-:root {
+html[data-theme="light"] {
+  color-scheme: light;
   --background: #ebebed;
   --foreground: #1d1d1f;
   --notes-sidebar: #f5f5f7;
+  --notes-app-bg: #f5f5f7;
   --notes-surface: #ffffff;
+  --notes-text: #1d1d1f;
   --notes-muted: #86868b;
-  --notes-accent: #007aff;
+  --notes-border: transparent;
+  --notes-divider: rgba(0, 0, 0, 0.06);
+  --notes-hover: rgba(0, 0, 0, 0.04);
   --notes-selection: #fff3b0;
+  --notes-selection-text: #1d1d1f;
+  --notes-accent: #007aff;
+  --notes-input-bg: #ffffff;
+  --notes-toolbar-bg: #f5f5f7;
+  --notes-toolbar-divider: rgba(0, 0, 0, 0.08);
+  --notes-search-border: rgba(0, 0, 0, 0.08);
+  --notes-prose-secondary: #515154;
+  --notes-blockquote-border: #d1d1d6;
+  --notes-toggle-track: #e5e5ea;
+  --notes-toggle-thumb: #ffffff;
+  --notes-toggle-icon: #8e8e93;
+  --notes-menu-bg: #ffffff;
+  --notes-toast-bg: rgba(29, 29, 31, 0.92);
+  --notes-toast-text: #ffffff;
+  --notes-shadow-ring: rgba(0, 0, 0, 0.06);
+  --notes-shadow-sm: rgba(0, 0, 0, 0.04);
+  --notes-shadow-md: rgba(0, 0, 0, 0.06);
+  --notes-shadow-lg: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #000000;
+  --foreground: #f5f5f7;
+  --notes-sidebar: #1c1c1e;
+  --notes-app-bg: #1c1c1e;
+  --notes-surface: #000000;
+  --notes-text: #f5f5f7;
+  --notes-muted: #98989d;
+  --notes-border: transparent;
+  --notes-divider: rgba(255, 255, 255, 0.06);
+  --notes-hover: rgba(255, 255, 255, 0.05);
+  --notes-selection: #6e632b;
+  --notes-selection-text: #f5f5f7;
+  --notes-accent: #0a84ff;
+  --notes-input-bg: #2c2c2e;
+  --notes-toolbar-bg: #2c2c2e;
+  --notes-toolbar-divider: rgba(255, 255, 255, 0.08);
+  --notes-search-border: transparent;
+  --notes-prose-secondary: #aeaeb2;
+  --notes-blockquote-border: #48484a;
+  --notes-toggle-track: #39393d;
+  --notes-toggle-thumb: #f5f5f7;
+  --notes-toggle-icon: #1c1c1e;
+  --notes-menu-bg: #2c2c2e;
+  --notes-toast-bg: rgba(242, 242, 247, 0.92);
+  --notes-toast-text: #1d1d1f;
+  --notes-shadow-ring: transparent;
+  --notes-shadow-sm: rgba(0, 0, 0, 0.3);
+  --notes-shadow-md: rgba(0, 0, 0, 0.45);
+  --notes-shadow-lg: rgba(0, 0, 0, 0.6);
 }
 
 @theme inline {
@@ -18,7 +74,6 @@
 }
 
 html {
-  color-scheme: light;
   height: 100%;
   overflow: hidden;
 }
@@ -34,8 +89,135 @@ body {
   overflow: hidden;
 }
 
+/* Semantic surface classes */
+.notes-sidebar-bg {
+  background-color: var(--notes-sidebar);
+}
+
+.notes-app-bg {
+  background-color: var(--notes-app-bg);
+}
+
+.notes-surface-bg {
+  background-color: var(--notes-surface);
+}
+
+.notes-text {
+  color: var(--notes-text);
+}
+
+.notes-muted {
+  color: var(--notes-muted);
+}
+
+.notes-border-b {
+  border-bottom: 1px solid var(--notes-divider);
+}
+
+.notes-border-r {
+  border-right: 1px solid var(--notes-divider);
+}
+
+.notes-search-input {
+  background-color: var(--notes-input-bg);
+  border: 1px solid var(--notes-search-border);
+  color: var(--notes-text);
+}
+
+.notes-search-input::placeholder {
+  color: var(--notes-muted);
+}
+
+.notes-search-input:focus {
+  border-color: color-mix(in srgb, var(--notes-accent) 40%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--notes-accent) 12%, transparent);
+  outline: none;
+}
+
+.notes-list-item {
+  color: var(--notes-text);
+}
+
+.notes-list-item:hover {
+  background-color: var(--notes-hover);
+}
+
+.notes-list-item-active {
+  background-color: var(--notes-selection);
+  color: var(--notes-selection-text);
+}
+
+.notes-list-item-active .notes-muted {
+  color: color-mix(in srgb, var(--notes-selection-text) 72%, transparent);
+}
+
+.notes-toolbar {
+  background-color: var(--notes-toolbar-bg);
+  box-shadow: inset 0 0 0 1px var(--notes-divider);
+}
+
+.notes-toolbar-btn {
+  color: var(--notes-text);
+}
+
+.notes-toolbar-btn:hover {
+  background-color: var(--notes-hover);
+}
+
+.notes-toolbar-divider {
+  background-color: var(--notes-toolbar-divider);
+}
+
+.notes-menu {
+  background-color: var(--notes-menu-bg);
+  border: 1px solid var(--notes-divider);
+}
+
+.notes-menu-item {
+  color: var(--notes-text);
+}
+
+.notes-menu-item:hover {
+  background-color: var(--notes-hover);
+}
+
+.theme-toggle {
+  background-color: var(--notes-toggle-track);
+  transition:
+    background-color 200ms ease-out,
+    transform 150ms ease-out;
+}
+
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  inset: -4.5px -4px;
+  border-radius: inherit;
+}
+
+.theme-toggle:active {
+  transform: scale(0.96);
+}
+
+.theme-toggle-thumb {
+  background-color: var(--notes-toggle-thumb);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+  transition: transform 300ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.theme-toggle-icon {
+  transition:
+    opacity 300ms cubic-bezier(0.2, 0, 0, 1),
+    transform 300ms cubic-bezier(0.2, 0, 0, 1),
+    filter 300ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.theme-toggle-icon-static {
+  transition: none;
+}
+
 .prose-notes {
-  color: #1d1d1f;
+  color: var(--notes-text);
   font-size: 17px;
   line-height: 1.6;
   text-wrap: pretty;
@@ -61,7 +243,7 @@ body {
 }
 
 .prose-notes p {
-  color: #1d1d1f;
+  color: var(--notes-text);
 }
 
 .prose-notes strong {
@@ -83,8 +265,8 @@ body {
 }
 
 .prose-notes blockquote {
-  border-left: 3px solid #d1d1d6;
-  color: #515154;
+  border-left: 3px solid var(--notes-blockquote-border);
+  color: var(--notes-prose-secondary);
   font-style: italic;
   padding-left: 1em;
 }
@@ -107,20 +289,10 @@ body {
 @media (min-width: 768px) {
   .notes-app {
     box-shadow:
-      0 0 0 1px rgba(0, 0, 0, 0.06),
-      0 2px 4px rgba(0, 0, 0, 0.04),
-      0 8px 20px rgba(0, 0, 0, 0.06),
-      0 24px 56px rgba(0, 0, 0, 0.1);
-  }
-}
-
-@media (min-width: 1024px) {
-  .notes-app {
-    box-shadow:
-      0 0 0 1px rgba(0, 0, 0, 0.05),
-      0 4px 8px rgba(0, 0, 0, 0.04),
-      0 12px 28px rgba(0, 0, 0, 0.07),
-      0 32px 64px rgba(0, 0, 0, 0.12);
+      0 0 0 1px var(--notes-shadow-ring),
+      0 2px 4px var(--notes-shadow-sm),
+      0 8px 20px var(--notes-shadow-md),
+      0 24px 56px var(--notes-shadow-lg);
   }
 }
 
@@ -146,6 +318,11 @@ body {
   );
 }
 
-.notes-canvas .notes-app {
-  backdrop-filter: blur(2px);
+html[data-theme="dark"] .notes-background-scrim {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
 }

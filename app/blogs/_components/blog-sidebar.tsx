@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { BlogPost } from "@/lib/blog-types";
 import { groupBlogsByDate } from "@/lib/blog-utils";
 import { BlogListItem } from "./blog-list-item";
+import { ThemeToggle } from "./theme-toggle";
 
 type BlogSidebarProps = {
   posts: BlogPost[];
@@ -27,21 +28,24 @@ export function BlogSidebar({ posts, activeSlug }: BlogSidebarProps) {
   const groups = groupBlogsByDate(filteredPosts);
 
   return (
-    <aside className="flex h-full min-h-0 flex-col bg-[#f5f5f7]">
-      <header className="shrink-0 border-b border-black/[0.06] px-4 pb-3 pt-5">
-        <div className="flex items-baseline justify-between">
-          <h1 className="text-[22px] font-bold tracking-tight text-[#1d1d1f] text-balance">
+    <aside className="notes-sidebar-bg flex h-full min-h-0 flex-col">
+      <header className="notes-border-b shrink-0 px-4 pb-3 pt-5">
+        <div className="flex items-center justify-between gap-3">
+          <h1 className="notes-text text-[22px] font-bold tracking-tight text-balance">
             Notes
           </h1>
-          <span className="text-[13px] tabular-nums text-[#86868b]">
-            {posts.length} {posts.length === 1 ? "note" : "notes"}
-          </span>
+          <div className="flex items-center gap-2.5">
+            <span className="notes-muted text-[13px] tabular-nums">
+              {posts.length} {posts.length === 1 ? "note" : "notes"}
+            </span>
+            <ThemeToggle />
+          </div>
         </div>
         <label className="relative mt-3 block">
           <span className="sr-only">Search notes</span>
           <svg
             aria-hidden
-            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#86868b]"
+            className="notes-muted pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -58,20 +62,20 @@ export function BlogSidebar({ posts, activeSlug }: BlogSidebarProps) {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search"
-            className="w-full rounded-lg border border-black/[0.08] bg-white/80 py-2 pl-9 pr-3 text-[15px] text-[#1d1d1f] shadow-[0_1px_2px_rgba(0,0,0,0.04)] outline-none transition-[box-shadow,border-color] duration-150 placeholder:text-[#86868b] focus:border-[#007aff]/40 focus:shadow-[0_0_0_3px_rgba(0,122,255,0.12)]"
+            className="notes-search-input w-full rounded-lg py-2 pl-9 pr-3 text-[15px] shadow-[0_1px_2px_var(--notes-shadow-sm)] transition-[box-shadow,border-color] duration-150"
           />
         </label>
       </header>
 
       <nav className="min-h-0 flex-1 overflow-y-auto px-2 py-3">
         {groups.length === 0 ? (
-          <p className="px-3 py-8 text-center text-[15px] text-[#86868b]">
+          <p className="notes-muted px-3 py-8 text-center text-[15px]">
             No notes found
           </p>
         ) : (
           groups.map((group) => (
             <section key={group.label} className="mb-4">
-              <h2 className="px-3 pb-1 text-[13px] font-semibold uppercase tracking-wide text-[#86868b]">
+              <h2 className="notes-muted px-3 pb-1 text-[13px] font-semibold uppercase tracking-wide">
                 {group.label}
               </h2>
               <ul className="space-y-0.5">
