@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "generate:blogs": "node scripts/generate-blogs.mjs",
-    "prebuild": "npm run generate:blogs",
-    "build": "next build",
+    "build": "opennextjs-cloudflare build",
+    "build:next": "next build",
     "start": "next start",
     "lint": "eslint",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "deploy": "npm run build && wrangler deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "predev": "npm run generate:blogs"
   },
