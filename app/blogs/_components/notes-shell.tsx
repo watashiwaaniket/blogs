@@ -32,7 +32,7 @@ export function NotesShell({ posts, children }: NotesShellProps) {
   const showDetailOnMobile = isDetailView;
 
   return (
-    <div className="notes-app mx-auto flex h-dvh w-full max-w-6xl overflow-hidden bg-[#f5f5f7] shadow-[0_8px_40px_rgba(0,0,0,0.08)] md:my-4 md:h-[calc(100dvh-2rem)] md:rounded-2xl md:border md:border-black/[0.06]">
+    <div className="notes-app mx-auto flex h-dvh w-full max-w-6xl overflow-hidden bg-[#f5f5f7] md:my-4 md:h-[calc(100dvh-2rem)] md:rounded-2xl">
       <div
         className={`${
           showSidebar ? "flex" : "hidden"

@@ -1,6 +1,10 @@
 import { notFound } from "next/navigation";
-import { getBlogBySlug } from "@/lib/blogs";
+import { getAllBlogs, getBlogBySlug } from "@/lib/blogs";
 import { BlogDetail } from "../_components/blog-detail";
+
+export function generateStaticParams() {
+  return getAllBlogs().map((post) => ({ slug: post.slug }));
+}
 
 export default async function BlogPostPage({
   params,

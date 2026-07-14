@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import type { BlogPost } from "@/lib/blog-types";
 import { formatBlogDate } from "@/lib/blog-utils";
 import { ShareNoteButton } from "./share-note-button";
+import { SocialMenuButton } from "./social-menu-button";
 
 type BlogDetailProps = {
   post: BlogPost;
@@ -49,8 +50,13 @@ export function BlogDetail({ post, showBackButton = false }: BlogDetailProps) {
               >
                 {formatBlogDate(post.date, "long")}
               </time>
-              <div className="flex items-center rounded-full bg-[#f5f5f7] p-0.5 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)]">
+              <div className="relative flex items-center rounded-full bg-[#f5f5f7] p-0.5 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)]">
                 <ShareNoteButton title={post.title} slug={post.slug} />
+                <div
+                  aria-hidden
+                  className="mx-0.5 h-4 w-px bg-black/[0.08]"
+                />
+                <SocialMenuButton />
               </div>
             </div>
           </div>
