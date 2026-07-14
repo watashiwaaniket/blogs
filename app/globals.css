@@ -39,7 +39,7 @@ html[data-theme="dark"] {
   --foreground: #f5f5f7;
   --notes-sidebar: #1c1c1e;
   --notes-app-bg: #1c1c1e;
-  --notes-surface: #000000;
+  --notes-surface: #1e1e1e;
   --notes-text: #f5f5f7;
   --notes-muted: #98989d;
   --notes-border: transparent;
@@ -81,8 +81,9 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;

@@ -3,7 +3,7 @@ import type { BlogPost } from "./blog-types";
 
 export const blogPosts: BlogPost[] = [
   {
-    "slug": "blog",
+    "slug": "the-art-of-slow-mornings",
     "title": "The Art of Slow Mornings",
     "date": "2026-07-10",
     "preview": "There is something quietly radical about refusing to rush. Most mornings, the world asks us to wake up already behind — …",
