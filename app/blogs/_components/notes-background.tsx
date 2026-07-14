@@ -9,7 +9,7 @@ export function NotesBackground({ children }: NotesBackgroundProps) {
     siteConfig;
 
   return (
-    <div className="notes-canvas relative isolate min-h-dvh w-full">
+    <div className="notes-canvas relative isolate h-dvh w-full overflow-hidden">
       <div
         aria-hidden
         className="notes-background-layer pointer-events-none fixed inset-0 -z-20"
@@ -33,7 +33,9 @@ export function NotesBackground({ children }: NotesBackgroundProps) {
         className="notes-background-scrim pointer-events-none fixed inset-0 -z-10"
         style={{ opacity: backgroundScrimOpacity }}
       />
-      <div className="relative z-0 min-h-dvh w-full">{children}</div>
+      <div className="relative z-0 flex h-dvh w-full overflow-hidden md:p-4">
+        {children}
+      </div>
     </div>
   );
 }

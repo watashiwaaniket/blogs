@@ -19,6 +19,8 @@
 
 html {
   color-scheme: light;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -28,6 +30,8 @@ body {
     Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  overflow: hidden;
 }
 
 .prose-notes {
@@ -131,16 +135,6 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.notes-background-picture img {
-  content-visibility: auto;
-}
-
-@media (min-width: 768px) {
-  .notes-background-layer {
-    background-attachment: fixed;
-  }
 }
 
 .notes-background-scrim {
