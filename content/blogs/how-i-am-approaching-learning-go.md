@@ -10,8 +10,9 @@ Go has a very different way of working, and it has its own set of strengths, so 
 
 Anyways the resources which I am using to learn go are:
 1. Go Official Documentation (the best and only resource you will need to learn go).
-2. Sriniously Youtube Playlist
-3. Matt Kodvab youtube playlist
-4. One2N go bootcamp exercises
+2. Go by Examples
+3. Sriniously Youtube Playlist
+4. Matt Kodvab youtube playlist
+5. One2N go bootcamp exercises
 
 For now I am only referring to these ones, will update them as I pick up some new ones.
